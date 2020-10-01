@@ -1,0 +1,5 @@
+package com.rafa.dscatalog.resource;
+
+public class CategoryResource {
+
+}

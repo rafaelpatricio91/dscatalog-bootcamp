@@ -1,0 +1,5 @@
+package com.rafa.dscatalog.entities;
+
+public class Category {
+
+}
