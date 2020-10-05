@@ -1,0 +1,2 @@
+INSERT INTO tb_category(NAME) VALUES
+('Books'),('Games'),('Music');
