@@ -1,0 +1,5 @@
+package com.rafa.dscatalog.services;
+
+public class CategoryService {
+
+}
