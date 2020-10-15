@@ -1,6 +1,7 @@
 package com.rafa.dscatalog.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,13 @@ public class CategoryService {
 		List<Category> list = categoryRep.findAll();
 		
 		return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList() );
+	}
+	
+	@Transactional(readOnly = true) //garante a transação - como é so leitura, readonly true melhora a performance
+	public CategoryDTO findById(Long id) {
+		Optional<Category> obj = categoryRep.findById(id);
+		Category category = obj.get();
+		
+		return new CategoryDTO(category);
 	}
 }
