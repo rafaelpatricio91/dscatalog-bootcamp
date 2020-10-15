@@ -1,1 +1,0 @@
-INDEX VERSION 1.131+/home/rafa/workspace-sts4/dscatalog/.metadata/.plugins/org.eclipse.jdt.core
