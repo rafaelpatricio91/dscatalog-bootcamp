@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rafa.dscatalog.dto.CategoryDTO;
 import com.rafa.dscatalog.entities.Category;
 import com.rafa.dscatalog.repository.CategoryRepository;
+import com.rafa.dscatalog.services.exceptions.EntityNotFoundException;
 
 @Service
 public class CategoryService {
@@ -28,7 +29,8 @@ public class CategoryService {
 	@Transactional(readOnly = true) //garante a transação - como é so leitura, readonly true melhora a performance
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = categoryRep.findById(id);
-		Category category = obj.get();
+		//tenta pegar o obj. Senao conseguir lança exceção.
+		Category category = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found") );
 		
 		return new CategoryDTO(category);
 	}
